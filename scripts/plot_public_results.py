@@ -1,4 +1,4 @@
-"""Rebuild portfolio figures from published aggregate results only."""
+"""Rebuild result figures from published aggregate results only."""
 import csv
 import json
 from pathlib import Path
