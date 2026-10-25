@@ -1,0 +1,27 @@
+{
+  "reason": "用户指定暂时排除，不认定永久无效",
+  "temporary": true,
+  "records": [
+    {
+      "sample_id": "08033a05b20e265469b93840430c362d827e00eb3fb49f51abc9224d9715df51",
+      "group": "negative",
+      "p_system": 15,
+      "p_ocean": 0,
+      "split": "validation"
+    },
+    {
+      "sample_id": "31e8201d5a0b54e7a3320c78b1b7027e0434c94a2ec471b0895dea069a3f995f",
+      "group": "negative",
+      "p_system": 20,
+      "p_ocean": 0,
+      "split": "train"
+    },
+    {
+      "sample_id": "36bf16aec6ccf034b097e6bbaead0c63f7d76e2ccfe87cf2e8c0ec6d94d308ac",
+      "group": "negative",
+      "p_system": 25,
+      "p_ocean": 0,
+      "split": "validation"
+    }
+  ]
+}

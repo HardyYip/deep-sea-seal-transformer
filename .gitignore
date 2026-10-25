@@ -1,0 +1,37 @@
+# Research sources and generated artifacts remain local.
+/src/
+/outputs/
+/AGENTS.md
+
+# Machine-specific editor and report-rendering settings.
+/.vscode/settings.json
+/scripts/render_final_report.py
+/scripts/export_final_report.ps1
+
+# Python environments and caches.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.conda/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Credentials and local settings.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+
+# Model/data exports must be deliberately reviewed before publication.
+*.pt
+*.pth
+*.ckpt
+*.xlsx
+*.xls
+*.docx
+*.pdf

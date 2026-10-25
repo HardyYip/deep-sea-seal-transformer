@@ -1,0 +1,70 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "GPU 环境检查",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/check_environment.py",
+      "args": [
+        "--device",
+        "cuda"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "数据与 GPU 预检（不训练）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/train_models.py",
+      "args": [
+        "--device",
+        "cuda",
+        "--check-data"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "训练 positive（GPU，独立配置）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/train_models.py",
+      "args": [
+        "--device",
+        "cuda",
+        "--data",
+        "${workspaceFolder}/outputs/training_data/v2",
+        "--group",
+        "positive",
+        "--config",
+        "${workspaceFolder}/scripts/training_positive.json",
+        "--output",
+        "${workspaceFolder}/outputs/training/vscode_run"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "训练 negative（GPU，独立配置）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/train_models.py",
+      "args": [
+        "--device",
+        "cuda",
+        "--data",
+        "${workspaceFolder}/outputs/training_data/v2",
+        "--group",
+        "negative",
+        "--config",
+        "${workspaceFolder}/scripts/training_negative.json",
+        "--output",
+        "${workspaceFolder}/outputs/training/vscode_run"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ]
+}

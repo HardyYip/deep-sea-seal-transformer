@@ -1,0 +1,9 @@
+{
+  "sources": {"positive": "src/positive", "negative": "src/negative"},
+  "output": "outputs/data_preparation",
+  "seed": 42,
+  "ratios": [0.7, 0.15, 0.15],
+  "known_review_conditions": [["negative", 15, 0], ["negative", 20, 0]],
+  "confirmed_associations": [],
+  "physical_definitions_status": "pending_review"
+}
