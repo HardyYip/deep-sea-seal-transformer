@@ -166,7 +166,8 @@ def main():
         "为保证验证/测试能评估边界规律，采用方案乙定向重分层：train 5（30,40,50,55,70）/ validation 2（35,45）/ test 2（60,65）。",
         f"边界重分层移动 {boundary_moved} 条（50、55、70 从 validation 到 train），明细见 split_changes.csv；其余记录分区不变。"]
     (OUT/"cleaning_review.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
-    p=ROOT/"AGENTS.md";text=p.read_text(encoding="utf-8")
+    # The local agent journal is optional and is not part of public checkouts.
+    p=ROOT/"AGENTS.md";text=p.read_text(encoding="utf-8") if p.is_file() else ""
     marker="\n## 2026-10-01 清洗任务范围纠正与证据复核\n"
     if marker in text:
         prefix,old_tail=text.split(marker,1)
@@ -191,7 +192,8 @@ def main():
     text += "\n- 排除并重分层后 negative 为 train 740 / validation 152 / test 149，共 1041 条；positive 仍为 1049 条。其他记录的 pending_review 状态不在本次授权中修改。"
     text += "\n- 排除规则为 scripts/data_exclusions.json，边界重分层规则在 scripts/finalize_cleaning_review.py；清单生成脚本重跑仍应用。\n"
     text += preserved_tail
-    p.write_text(text,encoding="utf-8")
+    if p.is_file():
+        p.write_text(text,encoding="utf-8")
     p=BASE/"data_audit.md";text=p.read_text(encoding="utf-8")
     marker="\n## 后续证据复核\n"
     text=text.split(marker)[0]+marker+"\n已完成 [XLSX 全量清洗复核](evidence_review/cleaning_review.md)。新发现 11 条共享节点输入关联记录，修正版划分见 evidence_review/split_manifest_grouped.csv；旧版保留追溯。早期未全面读取 XLSX、未发现关联的描述属于历史检查范围。原始数值未改。用户现已暂时排除 negative (15,0)、(20,0)、(25,0)，并对 9 条 p_ocean=0 边界记录按方案乙定向重分层（train 5 / validation 2 / test 2）；negative 未排除记录为 740/152/149，共 1041 条；positive 不变。\n"
